@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------
+# Script to install design tools on 24.04
+#
+# 07/12/2024, v1.0 - Migration from 22.04
+# 01/05/2025, v1.1 - Back to repo for Krita
+#
+# -------------------------------------------------------
+
+# hugin panorama
+logger "graphical - hugin panorama"
+sudo apt -y install hugin
+
+# darktable
+logger "graphical - darktable"
+sudo apt -y install darktable
+
+# krita
+logger "graphical - krita"
+sudo apt -y install krita krita-l10n
+
+# Luminance HDR and RAW Therapee
+logger "graphical - Luminance HDR & RAW Therapee"
+sudo apt -y install luminance-hdr rawtherapee
+
+# Sweet Home 3D
+wget https://github.com/NicolasBernaerts/ubuntu-scripts/raw/refs/heads/master/tools/sweethome3d/sweethome3d-install.sh
+if [ -f ./sweethome3d-install.sh ]
+then
+  logger "graphical - Sweet Home 3D"
+  chmod +x ./sweethome3d-install.sh
+  ./sweethome3d-install.sh
+  rm ./sweethome3d-install.sh
+fi
