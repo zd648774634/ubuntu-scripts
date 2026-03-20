@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # --------------------------------------------------
-#  Ubuntu 26.04 LTS Post-installation script
+#  Ubuntu 26.04 LTS post-installation script
 #
 #  This script will run some commands as sudo
 # 
