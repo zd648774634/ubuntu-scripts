@@ -1,0 +1,5 @@
+## This file is provided by apparmor-firefox
+## to re-declare apparmor access after firefox update
+ 
+# Verify apparmor access when dpkg has been executed (i.e. after apt upgrade)
+DPkg::Post-Invoke { "/usr/local/bin/apparmor-firefox"; };

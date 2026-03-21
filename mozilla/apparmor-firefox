@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# ----------------------------------------------------
+#  Apparmor restriction removal for Firefox snap
+#
+#  Revision history :
+#    20/03/2026, v1.0 - Creation by N. Bernaerts
+# 
+# ----------------------------------------------------
+
+# check if already present
+IS_PRESENT=$(grep "/proc/\*\*" /var/lib/snapd/apparmor/profiles/snap.firefox.firefox)
+
+# if imagemagick configuration file exists
+if [ "${IS_PRESENT}" = "" ]
+then
+  # remove culprit lines
+  sudo sed -i "/^}.*/i \/proc\/** r," /var/lib/snapd/apparmor/profiles/snap.firefox.firefox
+
+  # log and display
+  logger "Apparmor restriction removed for Firefox snap"
+  echo "Apparmor restriction removed for Firefox snap"
+fi
+
